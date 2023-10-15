@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="bg-indigo-400">
+    <div class="fluid-container">
+      <div class="container mx-4 md:mx-auto">
+        <h1 class="text-2xl font-bold"><%= title %></h1>
+        <div>
+          <% if(session.user_id) { %>
+            <h2>Hi User, welcome</h2>
+            <a href="/logout">Logout</a>
+            <% } else { %>
+              <div>
+                <form method="post" action="/login">
+                  <div class="mt-2">
+                    <label>User Email:</label>
+                    <input type="email" name="email" placeholder="Enter Email">
+                  </div>
+                  <div class="mt-2">
+                    <label>password:</label>
+                    <input type="password" name="password" placeholder="Enter password">
+                  </div>
+                  <button type="submit" class="bg-blue-700 text-white px-3 py-1 rounded">Login</button>
+                </form>
+              </div>
+    
+              <% } %>      
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
